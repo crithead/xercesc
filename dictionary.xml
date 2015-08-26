@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<dictionary name="fruit colors">
+	<value key="apple">red,green</value>
+	<value key="banana">yellow</value>
+	<value key="cherry">red</value>
+	<value key="Date">brown</value>
+	<value key="Elderberry">various</value>
+	<value key="Fig">green,brown</value>
+	<value key="Orange">orange</value>
+</dictionary>
+

@@ -1,0 +1,27 @@
+README for github.com/crithead/xercerc/
+=======================================
+
+This is an example projects showing how to parse XML files with Xerces-C++
+version 3.1.1.
+
+https://xerces.apache.org
+
+Programming Guide:
+http://xerces.apache.org/xerces-c/program-3.html
+
+Installation
+------------
+
+1. Install Xerces-C++ development libraries (Debian)
+
+.............................................................................
+# aptitude install libxerces-c-dev libxerces-c-doc libxerces-c-samples
+.............................................................................
+
+2. Build & Run
+
+.............................................................................
+$ make
+$ ./parser dictionary.xml
+.............................................................................
+
