@@ -79,7 +79,7 @@ void DictionaryHandler::startElement(
 		key = findKey( attributes );
 		if ( ! key.empty() )
 			haveKey = true;
-	cout << __FUNCTION__ << " value:key " << key << endl;
+	//cout << __FUNCTION__ << " value:key " << key << endl;
 	}
 	else if ( strncmp( name, "dictionary", 10 ) == 0 ) {
 		dictName = findName( attributes );
@@ -107,8 +107,8 @@ void DictionaryHandler::characters(
 		char *chars = XMLString::transcode( xmlChars );
 		value = string( chars );
 		XMLString::release( &chars );
-		cout << __FUNCTION__ << " ";
-		cout << key << " -> " << value << endl;
+		//cout << __FUNCTION__ << " ";
+		//cout << key << " -> " << value << endl;
 		(*dict)[ key ] = value;
 		haveKey = false;
 		key.clear();

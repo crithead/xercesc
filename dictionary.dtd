@@ -1,0 +1,7 @@
+<!DOCTYPE dictionary
+[
+<!ELEMENT dictionary (value+)>
+<!ELEMENT value (#CDATA)>
+<!ATTLIST dictionary name CDATA "dictionary">
+<!ATTLIST value key CDATA #REQUIRED>
+]>

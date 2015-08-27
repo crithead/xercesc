@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="yes"?>
+<dictionary dictname="Animal sounds"> <!-- wrong 'name' attribute -->
+	<value key="Horse">nay</value>
+	<value key="Cow">moo</value>
+	<value key="Pig">oink</value>
+	<key value="Snort">Hog</key>  <!-- reversed element-attribute relationship -->
+	<value key="Crow">caw</value>
+	<key>Canary</key> <!-- key value pair expressed as individual elements -->
+	<value>chirp</value>
+	<value key="Chicken">cluck-cluck</value>
+	<value key="Duck">quack</value>
+</dictionary>
+

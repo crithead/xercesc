@@ -58,6 +58,8 @@ int main( int argc, char **argv )
 
 	for (int i = 1; i < argc; i++) {
 		try {
+			cout << "File     : " << argv [ i ] << endl;
+
 			handler.resetErrors();
 			parser->parse( argv[i] );
 

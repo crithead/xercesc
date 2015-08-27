@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<dictionary name="fruit colors">
+	<value key="Apple">red,green</value>
+	<value key="Banana">yellow</aeluv> <!-- End element misspelled -->
+	<value key="Cherry">red</value>
+	<value key="Date">brown</value>
+	<value key="Elderberry">various</value>
+	<aeluv key="Fig">green,brown</value> <!-- Start element misspelled -->
+	<value key="Orange">orange</value>
+</dictionary>
+

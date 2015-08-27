@@ -1,5 +1,7 @@
 //
-// SAX Parser
+// SAX Parser Handler
+//   derives from HandlerBase
+//   overrides functions from DocumentHandler and ErrorHandler
 //
 #ifndef HANDLER_HPP
 #define HANDLER_HPP
@@ -10,6 +12,10 @@
 
 XERCES_CPP_NAMESPACE_USE
 
+//
+// The DictionaryHandler populates an STL map with key-value pairs
+// defined the input XML file.
+//
 class DictionaryHandler : public HandlerBase
 {
 public:
@@ -40,7 +46,7 @@ public:
 	void setDocumentLocator(const Locator * const locator);
 
 	//
-	//  Handlers for the SAX ErrorHandler interface
+	//  SAX ErrorHandler interface
 	//
 	void warning(const SAXParseException& exc);
 	void error(const SAXParseException& exc);
