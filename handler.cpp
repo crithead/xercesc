@@ -133,7 +133,23 @@ void DictionaryHandler::processingInstruction(
 void DictionaryHandler::setDocumentLocator(
 		const Locator * const locator)
 {
-	//cout << __FUNCTION__ << endl;
+	this->locator = locator;
+}
+
+void DictionaryHandler::printLocation() const
+{
+	char *publicId = XMLString::transcode( locator->getPublicId() );
+	cout << "publicId : " << publicId << endl;
+	XMLString::release( &publicId );
+
+	char *systemId = XMLString::transcode( locator->getSystemId() );
+	cout << "systemId : " << systemId << endl;
+	XMLString::release( &systemId );
+
+	XMLFileLoc line = locator->getLineNumber();
+	cout << "line     : " << line << endl;
+	XMLFileLoc column = locator->getLineNumber();
+	cout << "column   : " << column << endl;
 }
 
 //
@@ -146,6 +162,7 @@ void DictionaryHandler::warning(const SAXParseException& e)
 	char *message = XMLString::transcode( e.getMessage() );
 	cout << "Warning: " << message << endl;
 	XMLString::release( &message );
+	printLocation();
 }
 
 void DictionaryHandler::error(const SAXParseException& e)
@@ -155,6 +172,7 @@ void DictionaryHandler::error(const SAXParseException& e)
 	char *message = XMLString::transcode( e.getMessage() );
 	cout << "Error: " << message << endl;
 	XMLString::release( &message );
+	printLocation();
 }
 
 void DictionaryHandler::fatalError(const SAXParseException& e)
@@ -164,6 +182,7 @@ void DictionaryHandler::fatalError(const SAXParseException& e)
 	char *message = XMLString::transcode( e.getMessage() );
 	cout << "Fatal error: " << message << endl;
 	XMLString::release( &message );
+	printLocation();
 }
 
 void DictionaryHandler::resetErrors()

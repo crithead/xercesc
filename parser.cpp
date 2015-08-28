@@ -45,14 +45,15 @@ int main( int argc, char **argv )
 	// Parse document here
 	SAXParser *parser = new SAXParser;
 	parser->setValidationScheme( SAXParser::Val_Auto );
-	parser->setDoNamespaces( false );
-	parser->setDoSchema( false );
+	parser->setDoNamespaces( true ); // default: false
+	parser->setDoSchema( true );  // default: false
 	parser->setHandleMultipleImports( true );
 	parser->setValidationSchemaFullChecking( false );
 
 	DictionaryHandler handler;
 	parser->setDocumentHandler( &handler );
 	parser->setErrorHandler( &handler );
+	parser->setDTDHandler( &handler ); // use default behavior
 
 	int errors = 0;
 

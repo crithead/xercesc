@@ -9,6 +9,7 @@
 #include <map>
 #include <string>
 #include <xercesc/sax/HandlerBase.hpp>
+#include <xercesc/sax/Locator.hpp>
 
 XERCES_CPP_NAMESPACE_USE
 
@@ -29,6 +30,7 @@ public:
 	size_t getWarningCount() const;
 	std::map<std::string,std::string> *getDictionary() const;
 	std::string getDictionaryName() const;
+	void printLocation() const;
 
 	//
 	//  SAX DocumentHandler interface
@@ -56,6 +58,8 @@ public:
 private:
 	std::string findKey( AttributeList& attributes );
 	std::string findName( AttributeList& attributes );
+
+	const Locator *locator;
 
 	int errorCount;
 	int warningCount;
