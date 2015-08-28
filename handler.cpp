@@ -66,6 +66,9 @@ void DictionaryHandler::endDocument()
 void DictionaryHandler::resetDocument()
 {
 	//cout << __FUNCTION__ << endl;
+	errorCount = 0;
+	warningCount = 0;
+	locator = 0;
 }
 
 void DictionaryHandler::startElement(
@@ -138,13 +141,23 @@ void DictionaryHandler::setDocumentLocator(
 
 void DictionaryHandler::printLocation() const
 {
-	char *publicId = XMLString::transcode( locator->getPublicId() );
-	cout << "publicId : " << publicId << endl;
-	XMLString::release( &publicId );
+	if ( locator == 0 ) {
+		cout << "No locator." << endl;
+		return;
+	}
+	const XMLCh *xmlString = locator->getPublicId();
+	if ( xmlString ) {
+		char *publicId = XMLString::transcode( xmlString );
+		cout << "publicId : " << publicId << endl;
+		XMLString::release( &publicId );
+	}
 
-	char *systemId = XMLString::transcode( locator->getSystemId() );
-	cout << "systemId : " << systemId << endl;
-	XMLString::release( &systemId );
+	xmlString = locator->getSystemId();
+	if ( xmlString ) {
+		char *systemId = XMLString::transcode( xmlString );
+		cout << "systemId : " << systemId << endl;
+		XMLString::release( &systemId );
+	}
 
 	XMLFileLoc line = locator->getLineNumber();
 	cout << "line     : " << line << endl;

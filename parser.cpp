@@ -1,6 +1,5 @@
 //
-// The ''game'' is a simple print test program that uses the test classes
-// and prints out their state.
+// A parser for a simple XML dictionary.
 //
 #include <iostream>
 #include <map>
@@ -15,12 +14,12 @@
 using namespace std;
 using namespace xercesc;
 
-static void printDict( string name, map<string,string> * dict )
+static void printDict( map<string,string> * dict, string name = "" )
 {
-	cout << "Dictionary: " << name  << endl;
 	if ( dict == 0 )
 		return;
-	cout << "size = " << dict->size() << endl;
+	if ( name.size() > 0 )
+		cout << "Dictionary: " << name  << endl;
 	for ( auto i : *dict ) {
 		cout << i.first << " -> "  << i.second << endl;
 	}
@@ -68,7 +67,7 @@ int main( int argc, char **argv )
 			cout << "Errors   : " << handler.getErrorCount() << endl;
 
 			// use hanlder output here
-			printDict( handler.getDictionaryName(), handler.getDictionary() );
+			printDict( handler.getDictionary(), handler.getDictionaryName() );
 		}
 		catch (const OutOfMemoryException&) {
 			cerr << "OutOfMemoryException" << endl;
